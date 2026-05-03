@@ -73,6 +73,57 @@
         </div>
     </section>
 
+    <!-- Featured Routes Section -->
+    <section id="routes" class="bg-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">精選主題路線</h2>
+                <p class="text-gray-500 max-w-2xl mx-auto">為您挑選雙北最具代表性的行程，無論是深度文化體驗或是輕鬆的大自然漫步，都能在這裡找到靈感。</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Route 1 -->
+                <div class="group relative rounded-2xl overflow-hidden shadow-lg h-80 flex items-end cursor-pointer" onclick="document.getElementById('searchInput').value='故宮'; filterAttractions(); window.location.hash='explore';">
+                    <img src="https://images.unsplash.com/photo-1578345123961-45de4e3666f2?auto=format&fit=crop&w=800&q=80" alt="歷史文化一日遊" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
+                    <div class="relative p-6 text-white w-full">
+                        <span class="bg-blue-600 px-3 py-1 rounded-full text-xs font-bold mb-3 inline-block shadow-md">文化探索</span>
+                        <h3 class="text-2xl font-bold mb-2">歷史文化一日遊</h3>
+                        <p class="text-sm opacity-90 mb-4 text-gray-200">故宮博物院 → 士林官邸 → 士林夜市</p>
+                        <div class="text-sm font-bold flex items-center text-blue-300 group-hover:text-blue-200 transition-colors">
+                            查看相關景點 <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                        </div>
+                    </div>
+                </div>
+                <!-- Route 2 -->
+                <div class="group relative rounded-2xl overflow-hidden shadow-lg h-80 flex items-end cursor-pointer" onclick="document.getElementById('searchInput').value='九份'; filterAttractions(); window.location.hash='explore';">
+                    <img src="https://images.unsplash.com/photo-1571406151740-9d06b83f0907?auto=format&fit=crop&w=800&q=80" alt="山城浪漫之旅" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
+                    <div class="relative p-6 text-white w-full">
+                        <span class="bg-pink-600 px-3 py-1 rounded-full text-xs font-bold mb-3 inline-block shadow-md">浪漫約會</span>
+                        <h3 class="text-2xl font-bold mb-2">山城浪漫之旅</h3>
+                        <p class="text-sm opacity-90 mb-4 text-gray-200">猴硐貓村 → 十分瀑布 → 九份老街</p>
+                        <div class="text-sm font-bold flex items-center text-pink-300 group-hover:text-pink-200 transition-colors">
+                            查看相關景點 <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                        </div>
+                    </div>
+                </div>
+                <!-- Route 3 -->
+                <div class="group relative rounded-2xl overflow-hidden shadow-lg h-80 flex items-end cursor-pointer" onclick="document.getElementById('searchInput').value='101'; filterAttractions(); window.location.hash='explore';">
+                    <img src="https://images.unsplash.com/photo-1583325958573-3c8724beeb82?auto=format&fit=crop&w=800&q=80" alt="都會時尚購物線" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
+                    <div class="relative p-6 text-white w-full">
+                        <span class="bg-teal-500 px-3 py-1 rounded-full text-xs font-bold mb-3 inline-block shadow-md">潮流購物</span>
+                        <h3 class="text-2xl font-bold mb-2">都會時尚購物線</h3>
+                        <p class="text-sm opacity-90 mb-4 text-gray-200">台北 101 → 東區商圈 → 西門町商圈</p>
+                        <div class="text-sm font-bold flex items-center text-teal-300 group-hover:text-teal-200 transition-colors">
+                            查看相關景點 <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Explore Section -->
     <main id="explore" class="max-w-7xl mx-auto px-4 py-16">
         <div class="flex flex-col md:flex-row md:items-center justify-between mb-12 gap-6">
@@ -167,10 +218,12 @@
                 city: "台北市",
                 category: "購物",
                 desc: "世界知名的地標，擁有世界級購物中心與俯瞰全城的室內觀景台。這座摩天大樓不僅是台北的象徵，也是時尚與美食的聚集地。",
-                image: "https://images.unsplash.com/photo-1543158022-7909b558552f?auto=format&fit=crop&w=800&q=80",
+                image: "https://images.unsplash.com/photo-1583325958573-3c8724beeb82?auto=format&fit=crop&w=800&q=80",
                 badge: "必訪地標",
                 time: "11:00 - 21:00",
-                location: "台北市信義區信義路五段7號"
+                location: "台北市信義區信義路五段7號",
+                stayTime: "約 2-3 小時",
+                transport: "捷運台北101/世貿站 (紅線)"
             },
             {
                 id: 2,
@@ -180,8 +233,10 @@
                 desc: "懷舊的山城建築與紅燈籠，彷彿走進宮崎駿的電影世界。狹窄的街道充滿著各式特色小吃與茶館，讓您感受濃厚的古早味。",
                 image: "https://images.unsplash.com/photo-1571406151740-9d06b83f0907?auto=format&fit=crop&w=800&q=80",
                 badge: "懷舊古鎮",
-                time: "08:00 - 19:00 (部分餐廳營業較晚)",
-                location: "新北市瑞芳區基山街"
+                time: "08:00 - 19:00",
+                location: "新北市瑞芳區基山街",
+                stayTime: "約 3-4 小時",
+                transport: "火車至瑞芳站，轉乘客運"
             },
             {
                 id: 3,
@@ -191,8 +246,10 @@
                 desc: "四季花海、硫磺地景與絕美步道，是都市人的後花園。這裡可以遠眺整座大台北盆地，是賞夜景、健行與觀察火山地形的最佳去處。",
                 image: "https://images.unsplash.com/photo-1533038590840-1cde6e63f050?auto=format&fit=crop&w=800&q=80",
                 badge: "親近自然",
-                time: "全天開放 (遊客中心 09:00-16:30)",
-                location: "台北市北投區陽明山"
+                time: "全天開放",
+                location: "台北市北投區陽明山",
+                stayTime: "約 半天至一天",
+                transport: "捷運劍潭站轉乘紅5公車"
             },
             {
                 id: 4,
@@ -203,7 +260,9 @@
                 image: "https://images.unsplash.com/photo-1563836066708-f46399434861?auto=format&fit=crop&w=800&q=80",
                 badge: "夕陽美景",
                 time: "10:00 - 21:00",
-                location: "新北市淡水區中正路"
+                location: "新北市淡水區中正路",
+                stayTime: "約 3-5 小時",
+                transport: "捷運淡水站 (紅線)"
             },
             {
                 id: 5,
@@ -211,10 +270,12 @@
                 city: "台北市",
                 category: "文化",
                 desc: "收藏豐富的中華文化瑰寶，翠玉白菜與肉形石是造訪此處絕對不能錯過的珍藏。這座壯觀的博物館展現了橫跨千年的藝術歷史。",
-                image: "https://images.unsplash.com/photo-1582234373400-f9257d07963d?auto=format&fit=crop&w=800&q=80",
+                image: "https://images.unsplash.com/photo-1578345123961-45de4e3666f2?auto=format&fit=crop&w=800&q=80",
                 badge: "文化藝術",
                 time: "09:00 - 17:00 (週一休館)",
-                location: "台北市士林區至善路二段221號"
+                location: "台北市士林區至善路二段221號",
+                stayTime: "約 3-4 小時",
+                transport: "捷運士林站轉乘公車"
             },
             {
                 id: 6,
@@ -225,7 +286,9 @@
                 image: "https://images.unsplash.com/photo-1583273131141-8664687d6023?auto=format&fit=crop&w=800&q=80",
                 badge: "地理奇觀",
                 time: "08:00 - 17:00",
-                location: "新北市萬里區野柳里港東路167-1號"
+                location: "新北市萬里區野柳里港東路167-1號",
+                stayTime: "約 2-3 小時",
+                transport: "國光客運台北車站至野柳"
             },
             {
                 id: 7,
@@ -236,7 +299,9 @@
                 image: "https://images.unsplash.com/photo-1470004914846-3a7c3055e83e?auto=format&fit=crop&w=800&q=80",
                 badge: "流行文化",
                 time: "11:00 - 22:30",
-                location: "台北市萬華區成都路、漢中街"
+                location: "台北市萬華區成都路",
+                stayTime: "約 2-4 小時",
+                transport: "捷運西門站 (藍/綠線)"
             },
             {
                 id: 8,
@@ -247,7 +312,9 @@
                 image: "https://images.unsplash.com/photo-1571732154690-f6d1c3e5178a?auto=format&fit=crop&w=800&q=80",
                 badge: "祈福天燈",
                 time: "09:00 - 17:30",
-                location: "新北市平溪區十分里"
+                location: "新北市平溪區十分里",
+                stayTime: "約 3-4 小時",
+                transport: "火車平溪線至十分站"
             },
             {
                 id: 9,
@@ -258,7 +325,9 @@
                 image: "https://images.unsplash.com/photo-1596701062351-8c2c14d1fdd0?auto=format&fit=crop&w=800&q=80",
                 badge: "溫泉鄉",
                 time: "09:00 - 17:00 (週一休館)",
-                location: "台北市北投區中山路2號"
+                location: "台北市北投區中山路2號",
+                stayTime: "約 1-2 小時",
+                transport: "捷運新北投站"
             },
             {
                 id: 10,
@@ -268,8 +337,10 @@
                 desc: "泰雅族原住民文化的匯集地，搭乘具有歷史意義的台車觀賞瀑布，享受森林芬多精與傳統的原民美食。",
                 image: "https://images.unsplash.com/photo-1610486001099-22a014979e2c?auto=format&fit=crop&w=800&q=80",
                 badge: "原民風情",
-                time: "全天開放 (台車營運至 17:00)",
-                location: "新北市烏來區烏來街"
+                time: "全天開放",
+                location: "新北市烏來區烏來街",
+                stayTime: "約 半天",
+                transport: "捷運新店站轉乘客運"
             },
             {
                 id: 11,
@@ -280,7 +351,9 @@
                 image: "https://images.unsplash.com/photo-1518173946687-a4c8192729f5?auto=format&fit=crop&w=800&q=80",
                 badge: "吃貨最愛",
                 time: "16:00 - 00:00",
-                location: "台北市士林區基河路101號"
+                location: "台北市士林區基河路101號",
+                stayTime: "約 2-3 小時",
+                transport: "捷運劍潭站 (紅線)"
             },
             {
                 id: 12,
@@ -291,7 +364,9 @@
                 image: "https://images.unsplash.com/photo-1565557623262-b51c2513a641?auto=format&fit=crop&w=800&q=80",
                 badge: "陶瓷工藝",
                 time: "10:00 - 18:00",
-                location: "新北市鶯歌區尖山埔路"
+                location: "新北市鶯歌區尖山埔路",
+                stayTime: "約 半天",
+                transport: "火車至鶯歌站"
             }
         ];
 
@@ -413,6 +488,24 @@
                                 <div>
                                     <h4 class="font-bold text-gray-900">景點位置</h4>
                                     <p class="text-gray-500">${attr.location}</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="p-2 bg-blue-50 rounded-lg text-blue-600 mr-4">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-gray-900">預估停留</h4>
+                                    <p class="text-gray-500">${attr.stayTime}</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="p-2 bg-blue-50 rounded-lg text-blue-600 mr-4">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"></path></svg>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-gray-900">建議交通</h4>
+                                    <p class="text-gray-500">${attr.transport}</p>
                                 </div>
                             </div>
                         </div>
