@@ -90,7 +90,7 @@
                 <p class="text-gray-500">透過鏡頭，搶先體驗大台北地區的迷人風光與城市活力。</p>
             </div>
             <div class="relative w-full overflow-hidden rounded-2xl shadow-2xl bg-gray-900" style="padding-top: 56.25%;">
-                <iframe class="absolute top-0 left-0 w-full h-full" src="https://www.youtube.com/embed/RuPVKZCC9SE?rel=0" title="探索雙北導覽影片" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <iframe id="promo-video" class="absolute top-0 left-0 w-full h-full" src="https://www.youtube.com/embed/RuPVKZCC9SE?rel=0&enablejsapi=1" title="探索雙北導覽影片" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
         </div>
     </section>
@@ -560,6 +560,33 @@
         window.onload = () => {
             renderAttractions(attractions);
         };
+    </script>
+
+    <!-- YouTube IFrame API for GA4 Tracking -->
+    <script src="https://www.youtube.com/iframe_api"></script>
+    <script>
+        var player;
+        var videoTracked = false;
+        function onYouTubeIframeAPIReady() {
+            player = new YT.Player('promo-video', {
+                events: {
+                    'onStateChange': onPlayerStateChange
+                }
+            });
+        }
+        function onPlayerStateChange(event) {
+            // event.data == 1 means PLAYING
+            if (event.data == 1 && !videoTracked) {
+                videoTracked = true;
+                if (typeof gtag === 'function') {
+                    gtag('event', 'interested_user', {
+                        'event_category': 'video',
+                        'event_label': 'promo_video_play'
+                    });
+                    console.log('GA4 Event Sent: interested_user');
+                }
+            }
+        }
     </script>
 </body>
 </html>
