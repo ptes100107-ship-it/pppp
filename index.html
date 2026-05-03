@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>探索雙北 - 台北 & 新北旅遊景點導覽</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .hero-bg {
+            background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1552997154-091b01b301b7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        .card-transition {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .card-transition:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex items-center space-x-2">
+                    <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                    </svg>
+                    <span class="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-teal-500">探索雙北</span>
+                </div>
+                <div class="hidden md:flex space-x-8 font-medium">
+                    <a href="#" class="text-blue-600 border-b-2 border-blue-600">首頁</a>
+                    <a href="#explore" class="hover:text-blue-600 transition-colors">景點探索</a>
+                    <a href="#about" class="hover:text-blue-600 transition-colors">關於本站</a>
+                </div>
+                <button class="md:hidden p-2 text-gray-600">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-bg h-[500px] flex items-center justify-center text-center text-white px-4">
+        <div class="max-w-3xl animate-fadeIn">
+            <h1 class="text-4xl md:text-6xl font-black mb-6 drop-shadow-lg leading-tight">台北與新北，<br>城市與自然的交織。</h1>
+            <p class="text-lg md:text-xl mb-8 opacity-90 drop-shadow-md">從繁華的 101 到古色古香的九份，探索大台北地區的無限可能。</p>
+            <div class="bg-white p-2 rounded-2xl shadow-xl flex flex-col md:flex-row gap-2 max-w-2xl mx-auto">
+                <div class="flex-1 relative">
+                    <span class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                    </span>
+                    <input type="text" id="searchInput" placeholder="搜尋景點名稱..." class="w-full pl-12 pr-4 py-3 text-gray-700 focus:outline-none rounded-xl">
+                </div>
+                <button onclick="filterAttractions()" class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-xl font-bold transition-all shadow-lg active:scale-95">
+                    立即搜尋
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Explore Section -->
+    <main id="explore" class="max-w-7xl mx-auto px-4 py-16">
+        <div class="flex flex-col md:flex-row md:items-center justify-between mb-12 gap-6">
+            <div>
+                <h2 class="text-3xl font-bold text-gray-900 mb-2">熱門景點探索</h2>
+                <p class="text-gray-500">根據您的喜好選擇適合的旅遊類型</p>
+            </div>
+            
+            <div class="flex flex-wrap gap-2">
+                <button onclick="setFilter('city', 'all')" class="filter-city-btn active bg-gray-200 hover:bg-blue-100 px-4 py-2 rounded-full text-sm font-medium transition-all" data-value="all">全部城市</button>
+                <button onclick="setFilter('city', '台北市')" class="filter-city-btn bg-white border border-gray-200 hover:border-blue-300 px-4 py-2 rounded-full text-sm font-medium transition-all" data-value="台北市">台北市</button>
+                <button onclick="setFilter('city', '新北市')" class="filter-city-btn bg-white border border-gray-200 hover:border-blue-300 px-4 py-2 rounded-full text-sm font-medium transition-all" data-value="新北市">新北市</button>
+                <div class="w-px h-8 bg-gray-200 mx-2 hidden sm:block"></div>
+                <select id="categorySelect" onchange="filterAttractions()" class="bg-white border border-gray-200 px-4 py-2 rounded-full text-sm font-medium focus:ring-2 focus:ring-blue-400 outline-none">
+                    <option value="all">所有類別</option>
+                    <option value="自然">大自然</option>
+                    <option value="文化">人文藝術</option>
+                    <option value="購物">商圈購物</option>
+                    <option value="美食">在地美食</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Grid -->
+        <div id="attractionsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 min-h-[400px]">
+            <!-- Cards will be injected by JavaScript -->
+        </div>
+
+        <!-- Empty State -->
+        <div id="emptyState" class="hidden text-center py-20">
+            <div class="mb-4 text-gray-300 flex justify-center">
+                <svg class="w-20 h-20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9.172 9.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            </div>
+            <p class="text-xl text-gray-500">找不到符合條件的景點，請換個關鍵字試試看。</p>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer id="about" class="bg-gray-900 text-gray-400 py-12">
+        <div class="max-w-7xl mx-auto px-4 text-center md:text-left">
+            <div class="grid md:grid-cols-3 gap-12">
+                <div>
+                    <h3 class="text-white text-xl font-bold mb-4">探索雙北</h3>
+                    <p class="text-sm leading-relaxed">我們致力於提供最精確、最迷人的台北與新北旅遊資訊，讓每一位旅客都能在這座雙子城找到屬於自己的故事。</p>
+                </div>
+                <div>
+                    <h3 class="text-white text-xl font-bold mb-4">快速連結</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="hover:text-blue-400">台北市政府觀光傳播局</a></li>
+                        <li><a href="#" class="hover:text-blue-400">新北市觀光旅遊網</a></li>
+                        <li><a href="#" class="hover:text-blue-400">大眾運輸交通指南</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-white text-xl font-bold mb-4">訂閱情報</h3>
+                    <p class="text-sm mb-4">獲得最新的旅遊攻略與節慶活動資訊。</p>
+                    <div class="flex">
+                        <input type="email" placeholder="您的電子郵件" class="bg-gray-800 border-none rounded-l-lg px-4 py-2 w-full focus:ring-1 focus:ring-blue-500 text-white">
+                        <button class="bg-blue-600 text-white px-4 py-2 rounded-r-lg hover:bg-blue-700 transition-colors">送出</button>
+                    </div>
+                </div>
+            </div>
+            <hr class="border-gray-800 my-8">
+            <div class="flex flex-col md:flex-row justify-between items-center text-xs">
+                <p>&copy; 2024 探索雙北旅遊導覽. 版權所有.</p>
+                <div class="flex space-x-6 mt-4 md:mt-0">
+                    <a href="#" class="hover:text-white">隱私權政策</a>
+                    <a href="#" class="hover:text-white">服務條款</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const attractions = [
+            {
+                id: 1,
+                name: "台北 101",
+                city: "台北市",
+                category: "購物",
+                desc: "世界知名的地標，擁有世界級購物中心與俯瞰全城的室內觀景台。",
+                image: "https://images.unsplash.com/photo-1543158022-7909b558552f?auto=format&fit=crop&w=800&q=80",
+                badge: "必訪地標"
+            },
+            {
+                id: 2,
+                name: "九份老街",
+                city: "新北市",
+                category: "文化",
+                desc: "懷舊的山城建築與紅燈籠，彷彿走進宮崎駿的電影世界，品嚐在地芋圓。",
+                image: "https://images.unsplash.com/photo-1571406151740-9d06b83f0907?auto=format&fit=crop&w=800&q=80",
+                badge: "懷舊古鎮"
+            },
+            {
+                id: 3,
+                name: "陽明山國家公園",
+                city: "台北市",
+                category: "自然",
+                desc: "四季花海、硫磺地景與絕美步道，是都市人的後花園，也是賞夜景的首選。",
+                image: "https://images.unsplash.com/photo-1533038590840-1cde6e63f050?auto=format&fit=crop&w=800&q=80",
+                badge: "親近自然"
+            },
+            {
+                id: 4,
+                name: "淡水老街",
+                city: "新北市",
+                category: "美食",
+                desc: "漫步河畔享受夕陽美景，必嚐阿給與鐵蛋，搭船往返八里享受悠閒午後。",
+                image: "https://images.unsplash.com/photo-1563836066708-f46399434861?auto=format&fit=crop&w=800&q=80",
+                badge: "夕陽美景"
+            },
+            {
+                id: 5,
+                name: "故宮博物院",
+                city: "台北市",
+                category: "文化",
+                desc: "收藏豐富的中華文化瑰寶，翠玉白菜與肉形石是造訪此處絕對不能錯過的珍藏。",
+                image: "https://images.unsplash.com/photo-1582234373400-f9257d07963d?auto=format&fit=crop&w=800&q=80",
+                badge: "文化藝術"
+            },
+            {
+                id: 6,
+                name: "野柳地質公園",
+                city: "新北市",
+                category: "自然",
+                desc: "舉世聞名的女王頭與海蝕地景，展現了大自然的鬼斧神工，是攝影愛好者的天堂。",
+                image: "https://images.unsplash.com/photo-1583273131141-8664687d6023?auto=format&fit=crop&w=800&q=80",
+                badge: "地理奇觀"
+            },
+            {
+                id: 7,
+                name: "西門町商圈",
+                city: "台北市",
+                category: "購物",
+                desc: "台北流行文化中心，街頭藝人表演、時尚店舖與各式美食匯聚於此。",
+                image: "https://images.unsplash.com/photo-1470004914846-3a7c3055e83e?auto=format&fit=crop&w=800&q=80",
+                badge: "流行文化"
+            },
+            {
+                id: 8,
+                name: "十分瀑布與老街",
+                city: "新北市",
+                category: "自然",
+                desc: "台灣最大的簾幕式瀑布，還能在老街體驗施放天燈，許下美好心願。",
+                image: "https://images.unsplash.com/photo-1571732154690-f6d1c3e5178a?auto=format&fit=crop&w=800&q=80",
+                badge: "祈福天燈"
+            },
+            {
+                id: 9,
+                name: "北投溫泉博物館",
+                city: "台北市",
+                category: "文化",
+                desc: "充滿日式情懷的古蹟，了解北投溫泉的歷史脈絡，並享受放鬆的暖湯。",
+                image: "https://images.unsplash.com/photo-1596701062351-8c2c14d1fdd0?auto=format&fit=crop&w=800&q=80",
+                badge: "溫泉鄉"
+            },
+            {
+                id: 10,
+                name: "烏來瀑布與老街",
+                city: "新北市",
+                category: "自然",
+                desc: "原住民文化的匯集地，搭乘小火車觀賞瀑布，體驗原民風味美食。",
+                image: "https://images.unsplash.com/photo-1610486001099-22a014979e2c?auto=format&fit=crop&w=800&q=80",
+                badge: "原民風情"
+            },
+            {
+                id: 11,
+                name: "士林夜市",
+                city: "台北市",
+                category: "美食",
+                desc: "台灣最具代表性的夜市之一，大餅包小餅、生炒花枝等多樣化小吃應有盡有。",
+                image: "https://images.unsplash.com/photo-1518173946687-a4c8192729f5?auto=format&fit=crop&w=800&q=80",
+                badge: "吃貨最愛"
+            },
+            {
+                id: 12,
+                name: "鶯歌老街",
+                city: "新北市",
+                category: "文化",
+                desc: "台灣的陶瓷之都，可以親自體驗手作拉坯的樂趣，購買精緻的瓷器藝術品。",
+                image: "https://images.unsplash.com/photo-1565557623262-b51c2513a641?auto=format&fit=crop&w=800&q=80",
+                badge: "陶瓷工藝"
+            }
+        ];
+
+        let currentCity = 'all';
+
+        function setFilter(type, value) {
+            if (type === 'city') {
+                currentCity = value;
+                // Update UI buttons
+                document.querySelectorAll('.filter-city-btn').forEach(btn => {
+                    if (btn.getAttribute('data-value') === value) {
+                        btn.classList.add('bg-blue-100', 'text-blue-700', 'border-blue-300');
+                        btn.classList.remove('bg-white', 'border-gray-200');
+                    } else {
+                        btn.classList.remove('bg-blue-100', 'text-blue-700', 'border-blue-300');
+                        btn.classList.add('bg-white', 'border-gray-200');
+                    }
+                });
+            }
+            filterAttractions();
+        }
+
+        function filterAttractions() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            const selectedCategory = document.getElementById('categorySelect').value;
+            const grid = document.getElementById('attractionsGrid');
+            const emptyState = document.getElementById('emptyState');
+
+            const filtered = attractions.filter(attr => {
+                const matchesSearch = attr.name.toLowerCase().includes(searchTerm) || attr.desc.toLowerCase().includes(searchTerm);
+                const matchesCity = currentCity === 'all' || attr.city === currentCity;
+                const matchesCategory = selectedCategory === 'all' || attr.category === selectedCategory;
+                return matchesSearch && matchesCity && matchesCategory;
+            });
+
+            renderAttractions(filtered);
+            
+            if (filtered.length === 0) {
+                grid.classList.add('hidden');
+                emptyState.classList.remove('hidden');
+            } else {
+                grid.classList.remove('hidden');
+                emptyState.classList.add('hidden');
+            }
+        }
+
+        function renderAttractions(items) {
+            const grid = document.getElementById('attractionsGrid');
+            grid.innerHTML = items.map(attr => `
+                <div class="card-transition bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm flex flex-col h-full">
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="${attr.image}" alt="${attr.name}" class="w-full h-full object-cover transform hover:scale-110 transition-transform duration-500">
+                        <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-lg shadow-sm text-xs font-bold text-blue-600">
+                            ${attr.city}
+                        </div>
+                        <div class="absolute bottom-4 left-4 bg-blue-600 px-3 py-1 rounded-lg text-white text-xs font-medium">
+                            ${attr.badge}
+                        </div>
+                    </div>
+                    <div class="p-6 flex flex-col flex-1">
+                        <div class="flex items-center justify-between mb-2">
+                            <h3 class="text-xl font-bold text-gray-900">${attr.name}</h3>
+                            <span class="text-xs bg-gray-100 text-gray-500 px-2 py-1 rounded uppercase tracking-wider font-semibold">${attr.category}</span>
+                        </div>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-6 flex-1">
+                            ${attr.desc}
+                        </p>
+                        <div class="flex items-center justify-between pt-4 border-t border-gray-50">
+                            <button class="text-blue-600 font-bold text-sm hover:translate-x-1 transition-transform flex items-center">
+                                查看詳情 
+                                <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"></path></svg>
+                            </button>
+                            <button class="text-gray-400 hover:text-red-500 transition-colors">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Search on enter key
+        document.getElementById('searchInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                filterAttractions();
+            }
+        });
+
+        // Initial render
+        window.onload = () => {
+            renderAttractions(attractions);
+            setFilter('city', 'all'); // Initialize UI
+        };
+    </script>
+</body>
+</html>
