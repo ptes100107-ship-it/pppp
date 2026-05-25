@@ -1,0 +1,376 @@
+{
+  "summary": {
+    "total_posts": 30,
+    "average_sentiment": 0.3072,
+    "sentiment_counts": {
+      "positive": 9,
+      "neutral": 1,
+      "negative": 20
+    },
+    "overall_mood": "負向偏多"
+  },
+  "keywords": [
+    {
+      "keyword": "感覺",
+      "value": 7.04
+    },
+    {
+      "keyword": "推薦",
+      "value": 7.04
+    },
+    {
+      "keyword": "時候",
+      "value": 5.63
+    },
+    {
+      "keyword": "資料表",
+      "value": 4.22
+    },
+    {
+      "keyword": "問題",
+      "value": 4.22
+    },
+    {
+      "keyword": "北科",
+      "value": 4.22
+    },
+    {
+      "keyword": "幫忙",
+      "value": 4.22
+    },
+    {
+      "keyword": "毒駕",
+      "value": 4.22
+    },
+    {
+      "keyword": "開戶",
+      "value": 4.22
+    },
+    {
+      "keyword": "電腦",
+      "value": 4.22
+    },
+    {
+      "keyword": "登入",
+      "value": 4.22
+    },
+    {
+      "keyword": "ig",
+      "value": 4.22
+    },
+    {
+      "keyword": "應該",
+      "value": 4.22
+    },
+    {
+      "keyword": "怎麼",
+      "value": 4.22
+    },
+    {
+      "keyword": "還是",
+      "value": 4.22
+    }
+  ],
+  "posts": [
+    {
+      "id": 1,
+      "title": "請問簡式護照資料表可以有立可帶塗改的痕跡嗎？",
+      "author": "saveurtears",
+      "time": "Just now",
+      "snippet": "大家好因為第一次辦護照的關係 想請問大家一下申請資料表問題。在填寫資料表的時候，「緊急聯絡人」的「電話」那欄原本寫錯了，然後有用立可帶塗改。請問這樣子到時候去外交部申請護照的時候會被退回嗎？謝謝各位！",
+      "post_url": "https://www.dcard.tw/f/talk/p/261547903",
+      "sentiment_score": 0.0,
+      "sentiment_category": "negative"
+    },
+    {
+      "id": 2,
+      "title": "優雅離職",
+      "author": "匿名",
+      "time": "Just now",
+      "snippet": "最近深深又被社會暴打，想要好好離職 感覺比優雅分手 還難，打工甘苦人 永遠處在一個，說到加薪加班費 就不是個咖，放假甚至只是上個大號 買飲料，卻又像十惡不赦的 薪水小偷，看到 蘋果 亞馬遜的ceo 都",
+      "post_url": "https://www.dcard.tw/f/talk/p/261547895",
+      "sentiment_score": 0.0005,
+      "sentiment_category": "negative"
+    },
+    {
+      "id": 3,
+      "title": "可以開車的AI",
+      "author": "長庚科技大學",
+      "time": "Just now",
+      "snippet": "有什麼推薦可以開車的AI嗎？要沒有限制詞的那種",
+      "post_url": "https://www.dcard.tw/f/talk/p/261547859",
+      "sentiment_score": 0.105,
+      "sentiment_category": "negative"
+    },
+    {
+      "id": 4,
+      "title": "中國小說的特點",
+      "author": "國立臺灣大學",
+      "time": "14m",
+      "snippet": "這是一位脆友，多年看中國網路小說的體驗。以我自己而言，我從小就喜歡看小說，從金庸、倪匡、古龍、梁羽生、溫瑞安、黃易，到九把刀、蝴蝶、莫仁等等等等。當然也會看中國的網路小說，而且也看了非常多年，多數類型",
+      "post_url": "https://www.dcard.tw/f/talk/p/261547834",
+      "sentiment_score": 1.0,
+      "sentiment_category": "positive"
+    },
+    {
+      "id": 5,
+      "title": "找人",
+      "author": "小不點",
+      "time": "17m",
+      "snippet": "有沒有北科的同學 能夠私訊我！ 我需要幫忙 因為我本人不是北科的學生 沒辦法發dcard 但我要找的人唸北科",
+      "post_url": "https://www.dcard.tw/f/talk/p/261547800",
+      "sentiment_score": 0.9621,
+      "sentiment_category": "positive"
+    },
+    {
+      "id": 6,
+      "title": "無良主人彰化衝嘉義棄養鬆獅犬😡",
+      "author": "Overseas Sales",
+      "time": "23m",
+      "snippet": "嘉義縣家畜所接獲通報，民雄鄉水溝附近有隻鬆獅犬受困，成功救起後查了微晶片，飼主是彰化縣員林市的張男，通知他限期領回，他完全沒有回應，調查發現犬隻未絕育，也沒有定期施打狂犬病疫苗，屬於明確的故意把犬隻丟",
+      "post_url": "https://www.dcard.tw/f/talk/p/261547763",
+      "sentiment_score": 0.0065,
+      "sentiment_category": "negative"
+    },
+    {
+      "id": 7,
+      "title": "連砂石車都在毒駕是怎？",
+      "author": "輔仁大學",
+      "time": "28m",
+      "snippet": "台灣近期毒駕事件頻繁，傷亡案件一件接著一件，更可怕的是現在連砂石車都有毒駕事件，有網友發文說，毒駕砂石車這件事有夠恐怖，幾十噸的鋼鐵巨獸，正常人開都可能有視線死角，何況是吸完毒的人在開，最可怕的是毒駕",
+      "post_url": "https://www.dcard.tw/f/talk/p/261547727",
+      "sentiment_score": 0.5332,
+      "sentiment_category": "neutral"
+    },
+    {
+      "id": 8,
+      "title": "請益 帶阿嬤去國泰開戶跟證券戶",
+      "author": "菠蘿菠蘿蜜",
+      "time": "30m",
+      "snippet": "想詢問大家，我是阿嬤的孫女，阿嬤最近想要買股票就是簡單的定期定額ETF，我想說要帶阿嬤去國泰開戶，請問需要準備什麼資料呢？除了雙證件、印章還有什麼要特別證明的，已有先預約臨櫃開戶了，阿嬤大概70歲，感",
+      "post_url": "https://www.dcard.tw/f/talk/p/261547714",
+      "sentiment_score": 0.0112,
+      "sentiment_category": "negative"
+    },
+    {
+      "id": 9,
+      "title": "\\#推薦 蘆洲挺讚ㄉ眼鏡行👓",
+      "author": "鴿資",
+      "time": "30m",
+      "snippet": "今天不是分享美食，居然是眼鏡行分享～（☆\\_☆），由於原本的眼鏡也戴了快四年，最近覺得鼻子壓痕越來越重😵‍💫，剛好看到脆友推薦這家～馬上前往！，（本人不是相關專業，只是購物體驗良好所以推薦哦！），📍 亞里斯",
+      "post_url": "https://www.dcard.tw/f/talk/p/261547711",
+      "sentiment_score": 0.9995,
+      "sentiment_category": "positive"
+    },
+    {
+      "id": 10,
+      "title": "Ig問題",
+      "author": "孤舟蓑笠翁",
+      "time": "31m",
+      "snippet": "打擾了，想問問有人使用電腦登入ig以後會再登出的嗎？（就是從手機裡移除電腦的裝置），也想問問有人只有用過手機登入ig的嗎？（沒用電腦登過ig這樣）謝謝",
+      "post_url": "https://www.dcard.tw/f/talk/p/261547705",
+      "sentiment_score": 0.0,
+      "sentiment_category": "negative"
+    },
+    {
+      "id": 11,
+      "title": "泰國疾管署被抓包看色情直播？",
+      "author": "Financial Specialist",
+      "time": "33m",
+      "snippet": "泰國疾管署的官方臉書帳號，竟然出現在一段性愛直播的觀看名單裡，被網友大量截圖擴散，官方出來說明，有帳號透過私訊傳來直播連結，要求審查是否含兒童可接觸的不當內容，管理員點進去確認之後立刻退出，並用臉書系",
+      "post_url": "https://www.dcard.tw/f/talk/p/261547679",
+      "sentiment_score": 0.1619,
+      "sentiment_category": "negative"
+    },
+    {
+      "id": 12,
+      "title": "青年戒色之必要",
+      "author": "國立屏東大學",
+      "time": "34m",
+      "snippet": "不論古今中外、跨越地域與文化，凡是有遠見的智者，皆將青年時代的「色慾」一關，視為生命中最險惡的暗礁。古人關於戒邪淫的文字汗牛充棟，雖非全為少年而寫，但少年血氣未定、心智未成熟，最容易受到色情浪潮的荼毒",
+      "post_url": "https://www.dcard.tw/f/talk/p/261547672",
+      "sentiment_score": 0.0003,
+      "sentiment_category": "negative"
+    },
+    {
+      "id": 13,
+      "title": "想練英文口說",
+      "author": "國立臺南大學",
+      "time": "36m",
+      "snippet": "我6/16要去美國參加W&T，這段期間如果有遇到外國人都會一直跟他們用英文聊天。我是屬於偏語感型的人，考試那些不是很拿手，但聊天還算順，常常被問去哪學英文或是口音（這點蠻開心的）。想要找看看有沒有外國",
+      "post_url": "https://www.dcard.tw/f/talk/p/261547660",
+      "sentiment_score": 0.0368,
+      "sentiment_category": "negative"
+    },
+    {
+      "id": 14,
+      "title": "花23萬做増大手術反而縮水男子怒提告",
+      "author": "Fitness Instructor",
+      "time": "38m",
+      "snippet": "高雄一名 74 歲男子，因勃起障礮花了 23 萬，去做人工陰莖植入手術，術前勃起是 18 公分，術後只剩 12.5 公分，後來再去別家醫院測量，竟然只剩下 9 公分，他氣得對診所提告，要求退費加精神慰",
+      "post_url": "https://www.dcard.tw/f/talk/p/261547652",
+      "sentiment_score": 0.0043,
+      "sentiment_category": "negative"
+    },
+    {
+      "id": 15,
+      "title": "初判表無法判定肇責",
+      "author": "致理科技大學 應用日語系",
+      "time": "43m",
+      "snippet": "上個月車禍 今天拿到初判表，上面寫說雙方各執一詞，無法判斷肇責，監視器畫面只有錄到我撞到他的當下，警察說單看畫面無法判斷，附近監視器也剛好都沒照到，也沒有行車紀錄器，這樣送車鑑有機會翻轉嗎？事發過程：",
+      "post_url": "https://www.dcard.tw/f/talk/p/261547621",
+      "sentiment_score": 0.0,
+      "sentiment_category": "negative"
+    },
+    {
+      "id": 16,
+      "title": "南X居抹茶套組",
+      "author": "中原大學 化學工程學系",
+      "time": "1h",
+      "snippet": "購買了南山居某茶套組，網路上查詢評價都沒有甚麼紀錄，詢問客服說商品為師傅手工製作，結果收到貨看到外包裝就感覺很奇怪。結果看到酷棚一樣的東西連外包裝，所有展示照片都ㄧ樣才賣690，搞不清楚哪個才是真的",
+      "post_url": "https://www.dcard.tw/f/talk/p/261547419",
+      "sentiment_score": 0.0,
+      "sentiment_category": "negative"
+    },
+    {
+      "id": 17,
+      "title": "基隆應該併入新北、汐止應該併入台北嗎？",
+      "author": "台灣要民主、進步",
+      "time": "1h",
+      "snippet": "同意",
+      "post_url": "https://www.dcard.tw/f/talk/p/261547383",
+      "sentiment_score": 0.0979,
+      "sentiment_category": "negative"
+    },
+    {
+      "id": 18,
+      "title": "詐騙注意",
+      "author": "鉤端螺旋體",
+      "time": "1h",
+      "snippet": "在此作個紀錄，這種買東西的方式非常不正常，笑死到底怎麼想出來的，送人叫快遞來取，還是快遞給我錢，還像講手冊方法一樣講給我聽，我訊息傳不出去估計是被封鎖了吧？Dcard的回報機制太麻煩了我懶得回報，給大",
+      "post_url": "https://www.dcard.tw/f/talk/p/261547322",
+      "sentiment_score": 0.0,
+      "sentiment_category": "negative"
+    },
+    {
+      "id": 19,
+      "title": "瑟瑟女友",
+      "author": "小筆",
+      "time": "1h",
+      "snippet": "剛開始在一起的我們 超級柏拉圖，在一起一點時間了 開始越來越色，剛開始是他起頭的，後來我變得比他更色🤣，❗️男生會喜歡女朋友瑟瑟嗎🤣",
+      "post_url": "https://www.dcard.tw/f/talk/p/261547256",
+      "sentiment_score": 0.63,
+      "sentiment_category": "positive"
+    },
+    {
+      "id": 20,
+      "title": "鄰居的狗很吵",
+      "author": "中華醫事科技大學",
+      "time": "1h",
+      "snippet": "如題鄰居的狗一天到晚都在叫，我住大樓只要他一叫走廊就會有回音更吵，他已經被貼公布欄了感覺也沒在怕，如果我檢舉他們家虐狗行得通嗎？我本身自己也有養狗並不討厭小動物，但我覺得一天到晚這樣放任他叫實在超沒公",
+      "post_url": "https://www.dcard.tw/f/talk/p/261547195",
+      "sentiment_score": 0.0,
+      "sentiment_category": "negative"
+    },
+    {
+      "id": 21,
+      "title": "生物統計作業",
+      "author": "國立屏東科技大學",
+      "time": "1h",
+      "snippet": "需要各位的幫忙，期末作業就靠它了",
+      "post_url": "https://www.dcard.tw/f/talk/p/261547190",
+      "sentiment_score": 0.9904,
+      "sentiment_category": "positive"
+    },
+    {
+      "id": 22,
+      "title": "今天的待辦事項：洗襪子✔️",
+      "author": "夢安",
+      "time": "1h",
+      "snippet": "要洗￼襪子了",
+      "post_url": "https://www.dcard.tw/f/talk/p/261547189",
+      "sentiment_score": 0.0661,
+      "sentiment_category": "negative"
+    },
+    {
+      "id": 23,
+      "title": "❗️劇本殺app推薦",
+      "author": "國立臺灣藝術大學",
+      "time": "2h",
+      "snippet": "因為這是我們的家族活動，幾乎每天晚上都會玩，增進大家的感情🥳，一直以來都是用「百變大偵探」，不過百變大偵探現在不能登入了，中國版的要實名認證，沒有辦法接受海外的。用過「我是兇手」，不過裡面的3人劇本都",
+      "post_url": "https://www.dcard.tw/f/talk/p/261547154",
+      "sentiment_score": 0.002,
+      "sentiment_category": "negative"
+    },
+    {
+      "id": 24,
+      "title": "台啦真的沒市場嗎?",
+      "author": "國立虎尾科技大學",
+      "time": "2h",
+      "snippet": "不懂電商為何每次都要請韓國啦啦隊當代言...？現在韓啦和日啦的比例感覺都快要超台啦了…，雖然外援真的很香，但台灣也有很多實力派好嗎？還是說真的外援比較能帶票房啊？這次618檔期，電商看一輪...只有p",
+      "post_url": "https://www.dcard.tw/f/talk/p/261547135",
+      "sentiment_score": 0.9363,
+      "sentiment_category": "positive"
+    },
+    {
+      "id": 25,
+      "title": "女方這樣的條件有人敢娶嗎",
+      "author": "中臺科技大學",
+      "time": "2h",
+      "snippet": "娶",
+      "post_url": "https://www.dcard.tw/f/talk/p/261547103",
+      "sentiment_score": 0.0188,
+      "sentiment_category": "negative"
+    },
+    {
+      "id": 26,
+      "title": "股票賺了很多後",
+      "author": "Eric",
+      "time": "2h",
+      "snippet": "當股票賺了很多後，大家會請客嗎？通常都請什麼呢",
+      "post_url": "https://www.dcard.tw/f/talk/p/261547035",
+      "sentiment_score": 0.7301,
+      "sentiment_category": "positive"
+    },
+    {
+      "id": 27,
+      "title": "一週最快樂的時間 是去上歌唱課的那個小時",
+      "author": "明志科技大學",
+      "time": "2h",
+      "snippet": "以前一直以為，長大後生活穩定，會是一件很快樂的事，也是小時候很努力想達成的目標，穩定的工作、穩定存錢，感覺人生只要走到這一步 應該就算成功了吧，但後來才發現，這樣的生活就很像NPC，上班、下班、吃飯、",
+      "post_url": "https://www.dcard.tw/f/talk/p/261546896",
+      "sentiment_score": 0.074,
+      "sentiment_category": "negative"
+    },
+    {
+      "id": 28,
+      "title": "原來這種人可以當大學老師",
+      "author": "Industrial Designer",
+      "time": "2h",
+      "snippet": "陳\\*wei 第三個字4聲，東海大學的一位老師 私底下跟他平常在大家面前的樣子，落差非常大，私底下的他，是會霸凌人、欺善怕惡、沒有界線而越界、價值觀使人感到噁心，最讓人痛苦的是，他在外面維持的形象，跟私",
+      "post_url": "https://www.dcard.tw/f/talk/p/261546849",
+      "sentiment_score": 0.8627,
+      "sentiment_category": "positive"
+    },
+    {
+      "id": 29,
+      "title": "心思偏敏感很內耗的人要怎麼調適",
+      "author": "景文科技大學",
+      "time": "2h",
+      "snippet": "內耗到自己快喘不過氣了，我是那種只要犯一件超級小的錯誤，很簡單就可以補救，我還是會超級不高興一整天，也會覺得我怎麼可以犯錯，甚至光忘記打卡這件事只要主管幫忙補登就好，我也會覺得為什麼我可以忘記然後想一",
+      "post_url": "https://www.dcard.tw/f/talk/p/261546828",
+      "sentiment_score": 0.9874,
+      "sentiment_category": "positive"
+    },
+    {
+      "id": 30,
+      "title": "出國我必備的藥品和保健食品",
+      "author": "淡江大學",
+      "time": "3h",
+      "snippet": "自從疫情結束後每年我都給自己至少3次報復性旅遊，預計要這樣報復一輩子😂，不過旅遊在外最怕身體出問題（有次去釜山吃海鮮直接上吐下瀉...），所以我出國隨身都會準備幾款保健食品和方便攜帶的藥品，如果有常出",
+      "post_url": "https://www.dcard.tw/f/talk/p/261546804",
+      "sentiment_score": 0.0,
+      "sentiment_category": "negative"
+    }
+  ]
+}

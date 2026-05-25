@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-D7ER7F30N1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-D7ER7F30N1');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dcard 輿情分析 - 探索雙北旅遊導覽</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- Load ApexCharts -->
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <style>
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .card-transition {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .card-transition:hover {
+            transform: translateY(-4px);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 min-h-screen flex flex-col">
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex items-center space-x-2">
+                    <a href="index.html" class="flex items-center space-x-2">
+                        <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                        </svg>
+                        <span class="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-teal-500">探索雙北</span>
+                    </a>
+                </div>
+                <div class="hidden md:flex space-x-8 font-medium">
+                    <a href="index.html" class="hover:text-blue-600 transition-colors">首頁</a>
+                    <a href="index.html#explore" class="hover:text-blue-600 transition-colors">景點探索</a>
+                    <a href="index.html#about" class="hover:text-blue-600 transition-colors">關於本站</a>
+                    <a href="ptt-analysis.html" class="hover:text-blue-600 transition-colors flex items-center gap-1">
+                        鄉民美食數據
+                        <span class="bg-red-500 text-white text-[10px] px-1.5 py-0.5 rounded-full font-bold">NEW</span>
+                    </a>
+                    <a href="dcard-analysis.html" class="text-blue-600 border-b-2 border-blue-600 flex items-center gap-1">
+                        Dcard 輿情分析
+                        <span class="bg-purple-500 text-white text-[10px] px-1.5 py-0.5 rounded-full font-bold">NEW</span>
+                    </a>
+                    <a href="ga4-analysis.html" class="hover:text-blue-600 transition-colors flex items-center gap-1">
+                        流量數據分析
+                        <span class="bg-blue-500 text-white text-[10px] px-1.5 py-0.5 rounded-full font-bold">GA4</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 flex-1">
+        
+        <!-- Header Title -->
+        <div class="mb-10 animate-fadeIn">
+            <h1 class="text-3xl md:text-4xl font-extrabold text-gray-900 tracking-tight mb-2">
+                Dcard 閒聊板最新數據與情感分析報告
+            </h1>
+            <p class="text-lg text-gray-500">
+                本報告基於 Firecrawl 自動化爬蟲、Jieba 繁體中文斷詞演算法與 SnowNLP 機器學習情緒分析模型，即時分析 Dcard 論壇的焦點話題與社群氛圍。
+            </p>
+        </div>
+
+        <!-- Dashboard Widgets -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+            <!-- Total Posts -->
+            <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-6 flex flex-col justify-between card-transition">
+                <div>
+                    <span class="text-xs font-bold text-gray-400 uppercase tracking-wider block mb-1">分析貼文總數</span>
+                    <div class="text-4xl font-black text-blue-600" id="kpi-total-posts">--</div>
+                </div>
+                <div class="text-xs text-gray-400 mt-4">來源：Dcard 閒聊板 (Latest Tab)</div>
+            </div>
+            <!-- Average Sentiment -->
+            <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-6 flex flex-col justify-between card-transition">
+                <div>
+                    <span class="text-xs font-bold text-gray-400 uppercase tracking-wider block mb-1">平均情緒指數</span>
+                    <div class="text-4xl font-black text-teal-500" id="kpi-avg-sentiment">--</div>
+                </div>
+                <div class="text-xs text-gray-400 mt-4">範圍：0.00 (極悲觀) ~ 1.00 (極樂觀)</div>
+            </div>
+            <!-- Overall Mood -->
+            <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-6 flex flex-col justify-between card-transition">
+                <div>
+                    <span class="text-xs font-bold text-gray-400 uppercase tracking-wider block mb-1">社群整體氛圍</span>
+                    <div class="text-4xl font-black" id="kpi-overall-mood">--</div>
+                </div>
+                <div class="text-xs text-gray-400 mt-4">依貼文內容情緒傾向加權判定</div>
+            </div>
+        </div>
+
+        <!-- Charts Section -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-10">
+            <!-- Word Cloud / Keyword Bar Chart -->
+            <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-6 lg:col-span-2 card-transition">
+                <h3 class="text-lg font-bold text-gray-900 border-b border-gray-100 pb-3 mb-6 flex items-center">
+                    <span class="w-1 h-5 bg-blue-600 rounded-full mr-2"></span>
+                    熱門話題關鍵字權重排行 (Top 15)
+                </h3>
+                <div id="chart-keywords" class="min-h-[350px]"></div>
+            </div>
+            <!-- Sentiment Pie Chart -->
+            <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-6 card-transition">
+                <h3 class="text-lg font-bold text-gray-900 border-b border-gray-100 pb-3 mb-6 flex items-center">
+                    <span class="w-1 h-5 bg-teal-500 rounded-full mr-2"></span>
+                    貼文情緒倾向分佈
+                </h3>
+                <div id="chart-sentiment" class="min-h-[350px]"></div>
+            </div>
+        </div>
+
+        <!-- Posts Data Table -->
+        <section class="bg-white rounded-2xl border border-gray-100 shadow-sm p-6 md:p-8 card-transition">
+            <h3 class="text-xl font-bold text-gray-900 mb-2 flex items-center">
+                📊 貼文原始數據及情緒評分表
+            </h3>
+            <p class="text-sm text-gray-500 mb-6">
+                情感傾向分數低於 0.40 標記為紅色（負向），高於 0.60 標記為綠色（正向），介於中間為黃色（中性）。點擊標題可另開分頁檢視 Dcard 原文。
+            </p>
+
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse">
+                    <thead>
+                        <tr class="border-b border-gray-100 text-gray-400 font-semibold text-sm">
+                            <th class="py-4 px-4 w-12 text-center">#</th>
+                            <th class="py-4 px-4">貼文標題</th>
+                            <th class="py-4 px-4 w-40">作者/學校</th>
+                            <th class="py-4 px-4 w-24">時間</th>
+                            <th class="py-4 px-4 w-32 text-center">情緒分數</th>
+                            <th class="py-4 px-4 w-28 text-center">狀態標籤</th>
+                        </tr>
+                    </thead>
+                    <tbody id="posts-table-body" class="text-sm divide-y divide-gray-50">
+                        <tr>
+                            <td colspan="6" class="text-center py-10 text-gray-400">數據載入中...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer id="about" class="bg-gray-900 text-gray-400 py-12">
+        <div class="max-w-7xl mx-auto px-4 text-center md:text-left">
+            <div class="grid md:grid-cols-3 gap-12">
+                <div>
+                    <h3 class="text-white text-xl font-bold mb-4">探索雙北</h3>
+                    <p class="text-sm leading-relaxed">我們致力於提供最精確、最迷人的台北與新北旅遊資訊，讓每一位旅客都能在這座雙子城找到屬於自己的故事。</p>
+                </div>
+                <div>
+                    <h3 class="text-white text-xl font-bold mb-4">快速連結</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="hover:text-blue-400">台北市政府觀光傳播局</a></li>
+                        <li><a href="#" class="hover:text-blue-400">新北市觀光旅遊網</a></li>
+                        <li><a href="#" class="hover:text-blue-400">大眾運輸交通指南</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-white text-xl font-bold mb-4">訂閱情報</h3>
+                    <p class="text-sm mb-4">獲得最新的旅遊攻略與節慶活動資訊。</p>
+                </div>
+            </div>
+            <hr class="border-gray-800 my-8">
+            <div class="flex flex-col md:flex-row justify-between items-center text-xs">
+                <p>&copy; 2024 探索雙北旅遊導覽. 版權所有.</p>
+                <div class="flex space-x-6 mt-4 md:mt-0">
+                    <a href="#" class="hover:text-white">隱私權政策</a>
+                    <a href="#" class="hover:text-white">服務條款</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Inlined Script to load Dcard data and render charts -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            fetch('dcard_analysis_data.json')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('無法讀取 Dcard 輿情數據。');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    updateDashboard(data);
+                    renderCharts(data);
+                    renderTable(data);
+                })
+                .catch(error => {
+                    console.error('Error loading Dcard data:', error);
+                    const tbody = document.getElementById('posts-table-body');
+                    tbody.innerHTML = `<tr><td colspan="6" class="text-center py-10 text-red-500 font-semibold">數據載入失敗：${error.message}</td></tr>`;
+                });
+        });
+
+        function updateDashboard(data) {
+            document.getElementById('kpi-total-posts').textContent = data.summary.total_posts;
+            document.getElementById('kpi-avg-sentiment').textContent = data.summary.average_sentiment.toFixed(2);
+            
+            const moodEl = document.getElementById('kpi-overall-mood');
+            moodEl.textContent = data.summary.overall_mood;
+            
+            if (data.summary.overall_mood === '正向偏多') {
+                moodEl.className = 'text-4xl font-black text-green-500';
+            } else if (data.summary.overall_mood === '負向偏多') {
+                moodEl.className = 'text-4xl font-black text-red-500';
+            } else {
+                moodEl.className = 'text-4xl font-black text-yellow-500';
+            }
+        }
+
+        function renderCharts(data) {
+            // 1. Keyword Bar Chart
+            const keywords = data.keywords.slice(0, 15);
+            const categories = keywords.map(k => k.keyword);
+            const values = keywords.map(k => k.value);
+
+            const barOptions = {
+                series: [{
+                    name: '關鍵字詞頻熱度比重',
+                    data: values
+                }],
+                chart: {
+                    type: 'bar',
+                    height: 350,
+                    toolbar: { show: false }
+                },
+                colors: ['#3b82f6'],
+                plotOptions: {
+                    bar: {
+                        borderRadius: 4,
+                        horizontal: true,
+                        barHeight: '70%',
+                    }
+                },
+                dataLabels: {
+                    enabled: true,
+                    formatter: function(val) {
+                        return val.toFixed(1);
+                    },
+                    style: {
+                        colors: ['#fff'],
+                        fontWeight: 600
+                    }
+                },
+                xaxis: {
+                    categories: categories,
+                },
+                grid: {
+                    borderColor: '#f1f5f9'
+                },
+                tooltip: {
+                    y: {
+                        formatter: function(val) {
+                            return val.toFixed(2) + " %";
+                        }
+                    }
+                }
+            };
+
+            const barChart = new ApexCharts(document.querySelector("#chart-keywords"), barOptions);
+            barChart.render();
+
+            // 2. Sentiment Donut Chart
+            const counts = data.summary.sentiment_counts;
+            const donutOptions = {
+                series: [counts.positive, counts.neutral, counts.negative],
+                labels: ['正向情緒', '中性平穩', '負向情緒'],
+                chart: {
+                    type: 'donut',
+                    height: 350
+                },
+                colors: ['#10b981', '#f59e0b', '#ef4444'],
+                legend: {
+                    position: 'bottom',
+                    fontSize: '13px'
+                },
+                plotOptions: {
+                    pie: {
+                        donut: {
+                            size: '65%',
+                            labels: {
+                                show: true,
+                                total: {
+                                    show: true,
+                                    label: '總篇數',
+                                    formatter: function(w) {
+                                        return w.globals.seriesTotals.reduce((a, b) => a + b, 0);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                dataLabels: {
+                    enabled: false
+                }
+            };
+
+            const donutChart = new ApexCharts(document.querySelector("#chart-sentiment"), donutOptions);
+            donutChart.render();
+        }
+
+        function renderTable(data) {
+            const tbody = document.getElementById('posts-table-body');
+            tbody.innerHTML = '';
+
+            data.posts.forEach((post, index) => {
+                const tr = document.createElement('tr');
+                tr.className = 'hover:bg-gray-50/80 transition-colors';
+
+                let badgeClass = 'bg-yellow-100 text-yellow-700';
+                let badgeText = '中立';
+                if (post.sentiment_category === 'positive') {
+                    badgeClass = 'bg-green-100 text-green-700';
+                    badgeText = '正向';
+                } else if (post.sentiment_category === 'negative') {
+                    badgeClass = 'bg-red-100 text-red-700';
+                    badgeText = '負向';
+                }
+
+                tr.innerHTML = `
+                    <td class="py-4 px-4 text-center text-gray-400 font-medium">${post.id}</td>
+                    <td class="py-4 px-4 font-semibold text-gray-900 max-w-md truncate">
+                        <a href="${post.post_url}" target="_blank" class="hover:text-blue-600 hover:underline transition-all">
+                            ${post.title}
+                        </a>
+                    </td>
+                    <td class="py-4 px-4 text-gray-500">${post.author}</td>
+                    <td class="py-4 px-4 text-gray-400 text-xs">${post.time}</td>
+                    <td class="py-4 px-4 text-center font-mono font-bold text-gray-600">${post.sentiment_score.toFixed(4)}</td>
+                    <td class="py-4 px-4 text-center">
+                        <span class="px-2.5 py-1 rounded-full text-xs font-bold ${badgeClass}">${badgeText}</span>
+                    </td>
+                `;
+
+                tbody.appendChild(tr);
+            });
+        }
+    </script>
+
+</body>
+</html>
